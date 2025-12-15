@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <meta name = 'viewport' content = 'width = device - width, initial - scale = 1.0'>
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Weather App by Clement Raka De Costa</title>
-    <link rel = 'stylesheet' href = 'style.css'>
-    <body>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
         <div class="card">
             <div class="search">
                 <input type="text" placeholder="enter city name" spellcheck="false">
@@ -32,5 +34,20 @@
                 </div>
             </div>
         </div>
+        <!-- `` in JS, lets variable set. Whereas '' doesn't.  -->
+        <script>
+            const apiKEY = 'bcb56deae9736b4326eed9e43016baa3';
+            const apiURL = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=dhaka';
+            async function checkWeather(){
+                const response = await fetch(apiURL +`&appid=${apiKEY}`)
+                var data = await response.json();
+
+                console.log(data);
+                    
+            }
+            checkWeather()
+        </script>
+
+
     </body>
 </html>
